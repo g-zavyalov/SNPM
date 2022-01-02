@@ -20,8 +20,8 @@ extension Snpm {
         mutating func run() {
             name = name.lowercased()
             
-            guard let directory = try? Folder(path: Constants.snippetsDirectory) else {
-                print("Error: ".red + "\(Constants.snippetsDirectory) not found")
+            guard let directory = try? Folder(path: snippetsDirectory) else {
+                print("Error: ".red + "\(snippetsDirectory) not found")
                 return
             }
             
@@ -49,11 +49,11 @@ extension Snpm {
             
             // Snippet representation
             guard let snippetFolder = try? directory.subfolder(named: name) else {
-                print("Error: ".red + "Unable to access folder at \(Constants.snippetsDirectory)/\(name)")
+                print("Error: ".red + "Unable to access folder at \(snippetsDirectory)/\(name)")
                 return
             }
             
-            print("Path to configuration folder: " + "\(snippetFolder.path)".green)
+            print("Path to configuration folder: " + "\(snippetFolder.path)" + Constants.snippetConfigurationFilename.green)
             
         }
         

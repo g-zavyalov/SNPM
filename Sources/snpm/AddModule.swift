@@ -23,13 +23,13 @@ extension Snpm {
                 print("Error: ".red + "\(fileName) not found")
                 return
             }
-            guard let directory = try? Folder(path: Constants.snippetsDirectory) else {
-                print("Error: ".red + "\(Constants.snippetsDirectory) not found")
+            guard let directory = try? Folder(path: snippetsDirectory) else {
+                print("Error: ".red + "\(snippetsDirectory) not found")
                 return
             }
             
             guard let snippetFolder = try? directory.subfolder(named: name) else {
-                print("Error: ".red + "Unable to access snipet folder at \(Constants.snippetsDirectory)")
+                print("Error: ".red + "Unable to access snipet folder at \(snippetsDirectory)")
                 return
             }
             

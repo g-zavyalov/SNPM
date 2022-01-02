@@ -4,6 +4,7 @@
 
 
 ```console
+
 foo@bar:~$ snpm --help
 OVERVIEW: Utillity for searching suitable snippet
 
@@ -20,6 +21,7 @@ SUBCOMMANDS:
   add                     Add file to snippet
 
   See 'snpm help <subcommand>' for detailed help.
+
 ```
 
 
@@ -27,6 +29,7 @@ SUBCOMMANDS:
 ## Installation
 
 Soon : )
+
 
 ```console
 foo@bar:~$ swift build -c release
