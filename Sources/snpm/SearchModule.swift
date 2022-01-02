@@ -22,8 +22,8 @@ extension Snpm {
         mutating func run() {
             name = name.lowercased()
             
-            guard let directory = try? Folder(path: Constants.snippetsDirectory) else {
-                print("Error: ".red + "\(Constants.snippetsDirectory) not found")
+            guard let directory = try? Folder(path: snippetsDirectory) else {
+                print("Error: ".red + "\(snippetsDirectory) not found")
                 return
             }
             
@@ -36,7 +36,7 @@ extension Snpm {
             
             if (snippetNames[0] != name) {
                 print("\(name)".red + " doesn't exist")
-                print("Possible variants: ")
+                print("\nPossible variants: ")
                 var i = 0
                 for x in snippetNames {
                     print("\(x)".green)
@@ -51,11 +51,11 @@ extension Snpm {
             
             // Snippet representation
             guard let snippetFolder = try? directory.subfolder(named: name) else {
-                print("Error: ".red + "Unable to access folder at \(Constants.snippetsDirectory)/\(name)")
+                print("Error: ".red + "Unable to access folder at \(snippetsDirectory)/\(name)")
                 return
             }
             
-            guard let header = try? snippetFolder.file(named: "header.snippet-specification") else {
+            guard let header = try? snippetFolder.file(named: Constants.snippetConfigurationFilename) else {
                 print("Error: ".red + "Unable to access snippet specification")
                 return
             }
@@ -65,7 +65,7 @@ extension Snpm {
                 print(headerData)
                 var files = Array<File>()
                 for x in snippetFolder.files {
-                    if (x.name == "header.snippet-specification") { continue }
+                    if (x.name == Constants.snippetConfigurationFilename) { continue }
                     files.append(x)
                     
                 }
@@ -94,6 +94,8 @@ extension Snpm {
                     print("\n")
                     i += 1
                 }
+                
+                print("Tip: ".yellow + "To copy snippet type " + "snpm <snippet-name> <number>".green)
             } catch {
                 print(error)
             }
