@@ -4,9 +4,24 @@
 
 
 ```console
-foo@bar:~$ snpm new treap implicit.cc 
-Snippet created succefully!
-Tip: To specify snippet write snpm edit treap
+
+foo@bar:~$ snpm --help
+OVERVIEW: Utillity for searching suitable snippet
+
+USAGE: snpm <subcommand>
+
+OPTIONS:
+  --version               Show the version.
+  -h, --help              Show help information.
+
+SUBCOMMANDS:
+  new                     Create new snippet
+  search (default)        Search for snippet
+  edit                    Edit snippet
+  add                     Add file to snippet
+
+  See 'snpm help <subcommand>' for detailed help.
+
 ```
 
 
@@ -15,6 +30,9 @@ Tip: To specify snippet write snpm edit treap
 
 Soon : )
 
-```swift
-print("Hello world!")
+
+```console
+foo@bar:~$ swift build -c release
+foo@bar:~$ cd .build/release
+foo@bar:~$ mv snpm /usr/local/bin
 ```
