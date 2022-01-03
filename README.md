@@ -30,9 +30,7 @@ SUBCOMMANDS:
 ## Installation
 
 ```console
-foo@bar:~$ git clone ...
-foo@bar:~$ cd ...
-foo@bar:~$ swift build -c release
-foo@bar:~$ cd .build/release
-foo@bar:~$ mv snpm /usr/local/bin
+foo@bar:~$ git clone https://github.com/g-zavyalov/SNPM
+foo@bar:~$ cd SNPM
+foo@bar:~$ sh install.sh
 ```
