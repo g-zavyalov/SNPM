@@ -29,10 +29,9 @@ SUBCOMMANDS:
 
 ## Installation
 
-Soon : )
-
-
 ```console
+foo@bar:~$ git clone ...
+foo@bar:~$ cd ...
 foo@bar:~$ swift build -c release
 foo@bar:~$ cd .build/release
 foo@bar:~$ mv snpm /usr/local/bin
