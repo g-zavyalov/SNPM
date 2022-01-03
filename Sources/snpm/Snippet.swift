@@ -8,16 +8,16 @@
 import Foundation
 
 enum SnippetHeader {
-    static let defaultName = "name: "
-    static let defaultDescription = "description: "
-    static let defaultLink = "link: "
+    static let defaultName = "Name:"
+    static let defaultLink = "Link:"
+    static let defaultDescription = "Description:"
 }
 
 struct Snippet {
     let name: String
     let description: String
     let link: String
-
+    
     
     init(with name: String, description: String?, link: String?) {
         self.name = name
@@ -27,9 +27,9 @@ struct Snippet {
     
     func toString() -> String {
         let output =
-            SnippetHeader.defaultName + name + "\n" +
-            SnippetHeader.defaultDescription + description + "\n" +
-            SnippetHeader.defaultLink + link + "\n"
+        SnippetHeader.defaultName.green + " " + name + "\n" +
+        SnippetHeader.defaultDescription.green + " " + description + "\n" +
+        SnippetHeader.defaultLink.green + " " + link + "\n"
         return output
     }
 }
