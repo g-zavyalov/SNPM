@@ -16,7 +16,7 @@ struct Snpm: ParsableCommand {
         abstract: Constants.description,
         version: Constants.version,
         
-        subcommands: [Search.self, New.self, Add.self, Edit.self],
+        subcommands: [Search.self, New.self, Add.self, Edit.self, All.self],
         defaultSubcommand: Search.self
     )
 }
