@@ -29,7 +29,7 @@ extension Snpm {
             for folder in directory.subfolders { snippetNames.append(folder.name.lowercased()) }
             
             snippetNames.sort {
-                return SnippetSearchEngine.distance(aStr: $0, bStr: name) < SnippetSearchEngine.distance(aStr: $1, bStr: name)
+                return distance(aStr: $0, bStr: name) < distance(aStr: $1, bStr: name)
             }
             
             if (snippetNames[0] != name) {

@@ -31,7 +31,7 @@ extension Snpm {
             for folder in directory.subfolders { snippetNames.append(folder.name.lowercased()) }
             
             snippetNames.sort {
-                return SnippetSearchEngine.distance(aStr: $0, bStr: name) < SnippetSearchEngine.distance(aStr: $1, bStr: name)
+                return distance(aStr: $0, bStr: name) < distance(aStr: $1, bStr: name)
             }
             
             if (snippetNames[0] != name) {
@@ -95,7 +95,22 @@ extension Snpm {
                     i += 1
                 }
                 
-                print("Tip: ".yellow + "To copy snippet type " + "snpm <snippet-name> <number>".green)
+                print("Choose number (a - abort): ")
+                let input = readLine()
+                if input == nil || input?.count == 0 || input?.first == "a" {
+                    print("Aborted!".yellow)
+                    return
+                }
+                
+                id = Int(input ?? "-1") ?? -1
+                if (id != -1) {
+                    let data = try files[id].readAsString()
+                    let pasteboard = NSPasteboard.general
+                    pasteboard.declareTypes([.string], owner: nil)
+                    pasteboard.setString(data, forType: .string)
+                    print("\(files[id].name)".green + " copied to clipboard!")
+                    return
+                }
             } catch {
                 print(error)
             }
@@ -103,5 +118,40 @@ extension Snpm {
         }
         
     }
+    
+    public static func distance(aStr: String, bStr: String) -> Int {
+        let a = Array(aStr)
+        let b = Array(bStr)
+
+        var dist = [[Int]]()
+        for _ in 0...a.count {
+            dist.append(Array(repeating: 0, count: b.count + 1))
+        }
+
+        for i in 1...a.count {
+            dist[i][0] = i
+        }
+        
+        for j in 1...b.count {
+            dist[0][j] = j
+        }
+
+        for i in 1...a.count {
+            for j in 1...b.count {
+                if a[i-1] == b[j-1] {
+                    dist[i][j] = dist[i - 1][j - 1]
+                } else {
+                    dist[i][j] = min(
+                        dist[i - 1][j] + 1,
+                        dist[i][j - 1] + 1,
+                        dist[i - 1][j - 1] + 1
+                    )
+                }
+            }
+        }
+
+        return dist[a.count][b.count]
+    }
+
 }
 
