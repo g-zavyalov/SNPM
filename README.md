@@ -6,7 +6,7 @@
 ```console
 
 foo@bar:~$ snpm --help
-OVERVIEW: Utillity for searching suitable snippet
+OVERVIEW: Utill for searching suitable snippet
 
 USAGE: snpm <subcommand>
 
@@ -15,10 +15,11 @@ OPTIONS:
   -h, --help              Show help information.
 
 SUBCOMMANDS:
-  new                     Create new snippet
   search (default)        Search for snippet
-  edit                    Edit snippet
+  new                     Create new snippet
   add                     Add file to snippet
+  edit                    Edit snippet
+  all                     List of all snippets
 
   See 'snpm help <subcommand>' for detailed help.
 
