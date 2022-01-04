@@ -4,7 +4,7 @@ import Files
 public enum Constants {
     static let toolName = "snpm"
     static let description = "Utill for searching suitable snippet"
-    static let version = "1.0.a"
+    static let version = "1.0.0"
     static let snippetConfigurationFilename = ".configuration.snpm"
 }
 

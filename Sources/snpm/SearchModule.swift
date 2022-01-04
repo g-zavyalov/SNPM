@@ -13,6 +13,9 @@ extension Snpm {
     struct Search: ParsableCommand {
         static let configuration = CommandConfiguration(abstract: "Search for snippet")
         
+        @Flag(name: [.customLong("file"), .customShort("f")], help: "Paste as file")
+        var file = false
+        
         @Argument(help: "Snippet name")
         var name: String
         
@@ -70,6 +73,11 @@ extension Snpm {
                     
                 }
                 if (id != -1) {
+                    if (file) {
+                        try Folder.current.createFile(named: files[id].name, contents: try files[id].read())
+                        print("\(files[id].name)".green + " created!")
+                        return
+                    }
                     let data = try files[id].readAsString()
                     let pasteboard = NSPasteboard.general
                     pasteboard.declareTypes([.string], owner: nil)
@@ -104,6 +112,11 @@ extension Snpm {
                 
                 id = Int(input ?? "-1") ?? -1
                 if (id != -1) {
+                    if (file) {
+                        try Folder.current.createFile(named: files[id].name, contents: try files[id].read())
+                        print("\(files[id].name)".green + " created!")
+                        return
+                    }
                     let data = try files[id].readAsString()
                     let pasteboard = NSPasteboard.general
                     pasteboard.declareTypes([.string], owner: nil)
