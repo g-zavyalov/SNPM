@@ -3,16 +3,17 @@ import Files
 
 public enum Constants {
     static let toolName = "snpm"
-    static let description = "Utill for searching suitable snippet"
+    static let description = "Util for searching suitable snippet"
     static let version = "1.0.1"
     static let snippetConfigurationFilename = ".configuration.snpm"
 }
 
 public var snippetsDirectory = "~/.snippets"
+
 func customCompletion(_ s: [String]) -> [String] {
     guard let directory = try? Folder(path: snippetsDirectory) else {
         print("Error: ".red + "\(snippetsDirectory) not found")
-        return ["fff"]
+        return []
     }
     var snippetNames = Array<String>()
     for folder in directory.subfolders { snippetNames.append(folder.name.lowercased()) }
@@ -36,16 +37,6 @@ struct Snpm: ParsableCommand {
         defaultSubcommand: Search.self
     )
 }
-
-
-
-
-
-//let directory = try? Folder(path: snippetsDirectory)
-//var snippetNames = Array<String>()
-//if let directory = directory {
-//    for folder in (directory.subfolders) { snippetNames.append(folder.name.lowercased()) }
-//}
 
 Snpm.main()
 

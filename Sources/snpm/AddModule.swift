@@ -19,17 +19,12 @@ extension Snpm {
         var fileName: String = ""
         
         mutating func run() {
-            guard let file = try? Folder.current.file(at: fileName) else {
+            guard
+                let file = try? Folder.current.file(at: fileName),
+                let directory = try? Folder(path: snippetsDirectory),
+                let snippetFolder = try? directory.subfolder(named: name)
+            else {
                 print("Error: ".red + "\(fileName) not found")
-                return
-            }
-            guard let directory = try? Folder(path: snippetsDirectory) else {
-                print("Error: ".red + "\(snippetsDirectory) not found")
-                return
-            }
-            
-            guard let snippetFolder = try? directory.subfolder(named: name) else {
-                print("Error: ".red + "Unable to access snipet folder at \(snippetsDirectory)")
                 return
             }
             
@@ -41,7 +36,7 @@ extension Snpm {
                 return
             }
             print("File added to snippet succefully!".green)
-            print("Tip: ".yellow + "To specify snippet description write jobs edit \(name)")
+            print("Tip: ".yellow + "To edit snippet description write jobs edit \(name)")
         }
         
     }

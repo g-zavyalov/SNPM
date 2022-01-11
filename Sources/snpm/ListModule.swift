@@ -23,8 +23,6 @@ extension Snpm {
             var snippetNames = Array<String>()
             for folder in directory.subfolders { snippetNames.append(folder.name.lowercased()) }
             
-            
-            
             print("All snippets: ")
             for x in snippetNames {
                 print("\(x)".green)

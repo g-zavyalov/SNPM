@@ -47,7 +47,6 @@ extension Snpm {
                 return
             }
             
-            // Snippet representation
             guard let snippetFolder = try? directory.subfolder(named: name) else {
                 print("Error: ".red + "Unable to access folder at \(snippetsDirectory)/\(name)")
                 return

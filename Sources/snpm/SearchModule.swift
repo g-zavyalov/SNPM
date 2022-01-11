@@ -13,8 +13,6 @@ extension Snpm {
     struct Search: ParsableCommand {
         static let configuration = CommandConfiguration(abstract: "Search for snippet")
         
-        
-        
         @Flag(name: [.customLong("file"), .customShort("f")], help: "Paste as file")
         var file = false
         
@@ -156,7 +154,7 @@ extension Snpm {
 
         for i in 1...a.count {
             for j in 1...b.count {
-                if a[i-1] == b[j-1] {
+                if a[i - 1] == b[j - 1] {
                     dist[i][j] = dist[i - 1][j - 1]
                 } else {
                     dist[i][j] = min(
