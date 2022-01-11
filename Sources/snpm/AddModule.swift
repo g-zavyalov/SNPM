@@ -12,10 +12,10 @@ extension Snpm {
     struct Add: ParsableCommand {
         static let configuration = CommandConfiguration(abstract: "Add file to snippet")
         
-        @Argument(help: "Snippet name")
+        @Argument(help: "Snippet name", completion: .custom(customCompletion))
         var name: String
         
-        @Argument(help: "File name")
+        @Argument(help: "File name", completion: .directory)
         var fileName: String = ""
         
         mutating func run() {

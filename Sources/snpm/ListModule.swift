@@ -13,7 +13,6 @@ extension Snpm {
     struct All: ParsableCommand {
         static let configuration = CommandConfiguration(abstract: "List of all snippets")
         
-        
         mutating func run() {
             
             guard let directory = try? Folder(path: snippetsDirectory) else {

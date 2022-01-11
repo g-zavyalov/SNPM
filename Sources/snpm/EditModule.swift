@@ -13,7 +13,7 @@ extension Snpm {
     struct Edit: ParsableCommand {
         static let configuration = CommandConfiguration(abstract: "Edit snippet")
         
-        @Argument(help: "Snippet name")
+        @Argument(help: "Snippet name", completion: .custom(customCompletion))
         var name: String
         
         

@@ -13,14 +13,19 @@ extension Snpm {
     struct Search: ParsableCommand {
         static let configuration = CommandConfiguration(abstract: "Search for snippet")
         
+        
+        
         @Flag(name: [.customLong("file"), .customShort("f")], help: "Paste as file")
         var file = false
         
-        @Argument(help: "Snippet name")
+        @Argument(help: "Snippet name", completion: .custom(customCompletion))
         var name: String
         
-        @Argument(help: "Pick file")
+        @Argument(help: "Pick file", completion: .directory)
         var id: Int = -1
+        
+  
+  
         
         mutating func run() {
             name = name.lowercased()
@@ -167,4 +172,5 @@ extension Snpm {
     }
 
 }
+
 
