@@ -1,6 +1,6 @@
 //
 //  AddModule.swift
-//  jobs
+//  snpm
 //
 //  Created by Gleb Zavyalov on 02.01.2022.
 //
@@ -36,7 +36,7 @@ extension Snpm {
                 return
             }
             print("File added to snippet succefully!".green)
-            print("Tip: ".yellow + "To edit snippet description write jobs edit \(name)")
+            print("Tip: ".yellow + "To edit snippet description write snpm edit \(name)")
         }
         
     }

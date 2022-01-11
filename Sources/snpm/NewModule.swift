@@ -1,6 +1,6 @@
 //
 //  NewSnippet.swift
-//  jobs
+//  snpm
 //
 //  Created by Gleb Zavyalov on 02.01.2022.
 //
