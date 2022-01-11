@@ -15,7 +15,7 @@ extension Snpm {
         @Argument(help: "Snippet name")
         var name: String
         
-        @Argument(help: "File name")
+        @Argument(help: "File name", completion: .directory)
         var fileName: String = ""
         
         mutating func run() {
