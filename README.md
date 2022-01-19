@@ -37,4 +37,5 @@ SUBCOMMANDS:
 foo@bar:~$ git clone https://github.com/g-zavyalov/SNPM
 foo@bar:~$ cd SNPM
 foo@bar:~$ sh install.sh
+foo@bar:~$ sh completions.sh
 ```

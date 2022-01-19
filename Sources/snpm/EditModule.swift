@@ -7,6 +7,7 @@
 
 import ArgumentParser
 import Files
+import ShellOut
 
 
 extension Snpm {
@@ -52,6 +53,11 @@ extension Snpm {
                 return
             }
             
+            do {
+                try shellOut(to: "vim \(snippetFolder.path)\(Constants.snippetConfigurationFilename)")
+            } catch {
+                print(error)
+            }
             print("Path to configuration folder: " + "\(snippetFolder.path)" + Constants.snippetConfigurationFilename.green)
             
         }
