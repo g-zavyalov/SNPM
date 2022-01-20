@@ -12,7 +12,7 @@ extension Snpm {
     struct New: ParsableCommand {
         static let configuration = CommandConfiguration(abstract: "Create new snippet")
         
-        @Argument(help: "Snippet name")
+        @Argument(help: "Snippet name", completion: .default)
         var name: String
         
         @Argument(help: "File name", completion: .directory)

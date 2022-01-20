@@ -106,9 +106,9 @@ extension Snpm {
                     i += 1
                 }
                 
-                print("Pick snippet (a - abort): ".yellow)
+                print("Pick snippet (q or a - abort): ".yellow)
                 let input = readLine()
-                if input == nil || input?.count == 0 || input?.first == "a" {
+                if input == nil || input?.count == 0 || input?.first == "q" || input?.first == "a" {
                     print("Aborted!".yellow)
                     return
                 }
