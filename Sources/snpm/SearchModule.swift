@@ -10,7 +10,7 @@ import Files
 import AppKit
 
 extension Snpm {
-    struct Search: ParsableCommand {
+    struct Find: ParsableCommand {
         static let configuration = CommandConfiguration(abstract: "Search for snippet")
         
         @Flag(name: [.customLong("file"), .customShort("f")], help: "Paste as file")
