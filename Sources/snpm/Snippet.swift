@@ -27,9 +27,9 @@ struct Snippet {
     
     func toString() -> String {
         let output =
-        SnippetHeader.defaultName.green + " " + name + "\n" +
-        SnippetHeader.defaultDescription.green + " " + description + "\n" +
-        SnippetHeader.defaultLink.green + " " + link + "\n"
+        SnippetHeader.defaultName + " " + name + "\n" +
+        SnippetHeader.defaultDescription + " " + description + "\n" +
+        SnippetHeader.defaultLink + " " + link + "\n"
         return output
     }
 }

@@ -23,7 +23,21 @@ extension Snpm {
         var id: Int = -1
         
   
-  
+        func printHeader(_ header: String) {
+            let lines = header.split(whereSeparator: \.isNewline)
+            for x in lines {
+                var a: String = ""
+                var b: String = ""
+                var flag: Int = 1
+                for c in x {
+                    if (flag != 0) { a.append(c) }
+                    else { b.append(c) }
+                    if (c == ":") { flag = 0 }
+
+                }
+                print(a.green + b)
+            }
+        }
         
         mutating func run() {
             name = name.lowercased()
@@ -68,7 +82,7 @@ extension Snpm {
             
             do {
                 let headerData = try header.readAsString(encodedAs: .utf8)
-                print(headerData)
+                printHeader(headerData)
                 var files = Array<File>()
                 for x in snippetFolder.files {
                     if (x.name == Constants.snippetConfigurationFilename) { continue }
