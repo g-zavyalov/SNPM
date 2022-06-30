@@ -1,4 +1,4 @@
-# Snippet Manager CLI
+# Snippet Manager CLI Tool
 
 ## Demo
 
