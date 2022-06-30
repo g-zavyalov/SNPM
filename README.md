@@ -10,8 +10,7 @@
 
 ```console
 
-foo@bar:~$ snpm --help
-OVERVIEW: Utill for searching suitable snippet
+OVERVIEW: Tool for managing your snippets
 
 USAGE: snpm <subcommand>
 
@@ -20,7 +19,7 @@ OPTIONS:
   -h, --help              Show help information.
 
 SUBCOMMANDS:
-  search (default)        Search for snippet
+  find (default)          Search for snippet
   new                     Create new snippet
   add                     Add file to snippet
   edit                    Edit snippet
