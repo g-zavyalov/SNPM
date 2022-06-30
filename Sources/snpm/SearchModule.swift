@@ -9,7 +9,7 @@ import ArgumentParser
 import Files
 import AppKit
 
-extension Snpm {
+extension SNPM {
     struct Find: ParsableCommand {
         static let configuration = CommandConfiguration(abstract: "Search for snippet")
         
@@ -26,14 +26,12 @@ extension Snpm {
         func printHeader(_ header: String) {
             let lines = header.split(whereSeparator: \.isNewline)
             for x in lines {
-                var a: String = ""
-                var b: String = ""
+                var a = "", b = ""
                 var flag: Int = 1
                 for c in x {
                     if (flag != 0) { a.append(c) }
                     else { b.append(c) }
                     if (c == ":") { flag = 0 }
-
                 }
                 print(a.green + b)
             }
@@ -69,7 +67,7 @@ extension Snpm {
                 return
             }
             
-            // Snippet representation
+            // Snippet presentation
             guard let snippetFolder = try? directory.subfolder(named: name) else {
                 print("Error: ".red + "Unable to access folder at \(snippetsDirectory)/\(name)")
                 return
@@ -103,24 +101,21 @@ extension Snpm {
                     return
                 }
                 
-                var i = 0
-                for x in files {
-                    print("[\(i)]".yellow + " File:" + " \(x.name)".green)
+                
+                for i in 0..<files.count {
+                    print("[\(i)]".yellow + " File:" + " \(files[i].name)".green)
                     var j = 1
-                    let data = try x.readAsString()
+                    let data = try files[i].readAsString()
                     let arr = data.split(separator: "\n")
                     for x in arr {
                         print(x)
                         j += 1
-                        if (j == min(10, arr.count)) {
-                            break
-                        }
+                        if (j == min(10, arr.count)) { break }
                     }
                     print("\n")
-                    i += 1
                 }
                 
-                print("Pick snippet (q or a - abort): ".yellow)
+                print("Pick snippet ('q' or 'a' - to abort): ".yellow)
                 let input = readLine()
                 if input == nil || input?.count == 0 || input?.first == "q" || input?.first == "a" {
                     print("Aborted!".yellow)
@@ -158,13 +153,8 @@ extension Snpm {
             dist.append(Array(repeating: 0, count: b.count + 1))
         }
 
-        for i in 1...a.count {
-            dist[i][0] = i
-        }
-        
-        for j in 1...b.count {
-            dist[0][j] = j
-        }
+        for i in 1...a.count { dist[i][0] = i }
+        for j in 1...b.count { dist[0][j] = j }
 
         for i in 1...a.count {
             for j in 1...b.count {

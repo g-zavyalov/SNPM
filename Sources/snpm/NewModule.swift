@@ -8,7 +8,7 @@
 import ArgumentParser
 import Files
 
-extension Snpm {
+extension SNPM {
     struct New: ParsableCommand {
         static let configuration = CommandConfiguration(abstract: "Create new snippet")
         

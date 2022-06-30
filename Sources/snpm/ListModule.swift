@@ -9,7 +9,7 @@ import ArgumentParser
 import Files
 import AppKit
 
-extension Snpm {
+extension SNPM {
     struct All: ParsableCommand {
         static let configuration = CommandConfiguration(abstract: "List of all snippets")
         
@@ -28,8 +28,6 @@ extension Snpm {
                 print("\(x)".green)
             }
             return
-            
         }
-        
     }
 }
