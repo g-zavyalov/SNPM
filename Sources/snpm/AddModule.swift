@@ -8,7 +8,7 @@
 import ArgumentParser
 import Files
 
-extension Snpm {
+extension SNPM {
     struct Add: ParsableCommand {
         static let configuration = CommandConfiguration(abstract: "Add file to snippet")
         
@@ -36,7 +36,7 @@ extension Snpm {
                 return
             }
             print("File added to snippet succefully!".green)
-            print("Tip: ".yellow + "To edit snippet description write snpm edit \(name)")
+            print("Tip: ".yellow + "To edit snippet's description write 'snpm edit \(name)'")
         }
         
     }

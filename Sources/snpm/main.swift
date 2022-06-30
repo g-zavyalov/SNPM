@@ -1,9 +1,9 @@
-import ArgumentParser
 import Files
+import ArgumentParser
 
 public enum Constants {
-    static let toolName = "snpm"
-    static let description = "Util for searching suitable snippet"
+    static let toolName = "Snippet Manager"
+    static let description = "Tool for managing your snippets"
     static let version = "1.0.1"
     
     static let snippetConfigurationFilename = ".configuration.snpm"
@@ -11,7 +11,7 @@ public enum Constants {
 public var snippetsDirectory = "~/.snippets"
 
 
-struct Snpm: ParsableCommand {
+struct SNPM: ParsableCommand {
     public static let configuration = CommandConfiguration(
         abstract: Constants.description,
         version: Constants.version,
@@ -21,5 +21,5 @@ struct Snpm: ParsableCommand {
     )
 }
 
-Snpm.main()
+SNPM.main()
 

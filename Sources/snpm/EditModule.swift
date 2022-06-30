@@ -10,7 +10,7 @@ import Files
 import ShellOut
 
 
-extension Snpm {
+extension SNPM {
     struct Edit: ParsableCommand {
         static let configuration = CommandConfiguration(abstract: "Edit snippet")
         
@@ -36,14 +36,12 @@ extension Snpm {
             if (snippetNames[0] != name) {
                 print("\(name)".red + " doesn't exist")
                 print("Possible variants: ")
-                var i = 0
-                for x in snippetNames {
-                    print("\(x)".green)
-                    i += 1
+                for i in 0..<snippetNames.count {
                     if (i == 5 && i != snippetNames.count) {
                         print("and \(snippetNames.count - i) more...")
                         break
                     }
+                    print("\(snippetNames[i])".green)
                 }
                 return
             }
@@ -52,16 +50,8 @@ extension Snpm {
                 print("Error: ".red + "Unable to access folder at \(snippetsDirectory)/\(name)")
                 return
             }
-            
-//            do {
-////                try shellOut(to: "vim \(snippetFolder.path)\(Constants.snippetConfigurationFilename)")
-//            } catch {
-//                print(error)
-//            }
-            
+
             print("Path to configuration folder: " + "\(snippetFolder.path)" + Constants.snippetConfigurationFilename.green)
-            
         }
-        
     }
 }

@@ -19,7 +19,7 @@ func customCompletion(_ s: [String]) -> [String] {
         return snippetNames
     } else {
         snippetNames.sort {
-            return Snpm.distance(aStr: $0, bStr: s[0]) < Snpm.distance(aStr: $1, bStr: s[0])
+            return SNPM.distance(aStr: $0, bStr: s[0]) < SNPM.distance(aStr: $1, bStr: s[0])
         }
         return snippetNames
     }
