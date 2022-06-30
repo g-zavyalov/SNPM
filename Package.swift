@@ -19,6 +19,6 @@ let package = Package(
                 "ShellOut",
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
             ]
-        ),
+        )
     ]
 )
