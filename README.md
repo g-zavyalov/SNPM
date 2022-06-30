@@ -1,7 +1,8 @@
 # Snippet Manager CLI
 
-<!-- <img align="left" alt="swift" src="https://img.shields.io/badge/swift-f5e2e1?&style=for-the-badge&logo=swift&logoColor=red" />
-<br> -->
+## Demo
+
+![Snippet Manager Demo](demo/snpm_demo.gif)
 
 
 ## Usage
