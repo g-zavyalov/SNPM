@@ -2,7 +2,7 @@
 
 ## Demo
 
-![Snippet Manager Demo](demo/demo.gif)
+![Snippet Manager Demo](demo/snpm_demo.gif)
 
 
 ## Usage
